@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Font Generator | 100+ Stylish Fonts - EasyUseHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #7c3aed; --accent: #00e5ff; --bg: #ffffff; --dark-bg: #f8fafc; --text: #0f172a; --card: #ffffff; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--dark-bg); color: var(--text); }
+        .container { width: 92%; max-width: 800px; margin: 0 auto; padding: 40px 0; }
+        
+        /* Push Ad Picsart Style */
+        #push-ad {
+            position: fixed; bottom: -200px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; 
+            background: #1e293b; color: white; border-radius: 16px; padding: 15px; z-index: 10000; 
+            transition: 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); display: flex; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        #push-ad.active { bottom: 20px; }
+        .close-ad { position: absolute; top: 10px; right: 10px; cursor: pointer; color: #94a3b8; }
+
+        header { text-align: center; margin-bottom: 40px; }
+        header h1 { font-size: 40px; font-weight: 800; color: #1e293b; margin-bottom: 10px; letter-spacing: -1px; }
+        header p { color: #64748b; font-size: 16px; }
+
+        /* Ads Layout */
+        .ad-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .ad-box { background: white; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 15px; text-align: left; cursor: pointer; transition: 0.3s; }
+        .ad-box:hover { border-color: var(--primary); background: #f5f3ff; }
+        .ad-tag { font-size: 10px; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 5px; display: block; }
+        .ad-title { font-weight: 700; font-size: 14px; color: #1e293b; }
+
+        /* Main Generator Tool */
+        .workspace { background: var(--card); border-radius: 24px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); margin-bottom: 30px; }
+        .input-box { width: 100%; border: 2px solid #e2e8f0; border-radius: 16px; padding: 20px; font-size: 22px; color: #1e293b; outline: none; transition: 0.3s; box-sizing: border-box; text-align: center; }
+        .input-box:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1); }
+
+        /* Style Grid */
+        #results { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; }
+        .style-card { 
+            background: white; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;
+            display: flex; justify-content: space-between; align-items: center; transition: 0.2s;
+        }
+        .style-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .style-text { font-size: 22px; color: #1e293b; overflow-wrap: anywhere; }
+        .copy-btn { 
+            background: #f1f5f9; color: #475569; border: none; padding: 10px 20px; 
+            border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 13px; transition: 0.3s;
+        }
+        .copy-btn:hover { background: var(--primary); color: white; }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<div id="push-ad">
+    <span class="close-ad" onclick="this.parentElement.classList.remove('active')">✕</span>
+    <div style="cursor:pointer" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
+        <span style="color:var(--accent); font-weight:800; font-size:12px;">PRO TOOL</span>
+        <p style="margin:5px 0 0 0; font-size:14px;">Try EasyUseHub's 46+ Professional Utilities!</p>
+    </div>
+</div>
+
+<div class="container">
+    <header>
+        <h1>Font Generator</h1>
+        <p>Type your text and choose from 100+ professional styles</p>
+    </header>
+
+    <div class="ad-container">
+        <div class="ad-box" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
+            <span class="ad-tag">Ad Slot 1</span>
+            <div class="ad-title">Free PDF Editor Pro</div>
+        </div>
+        <div class="ad-box" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
+            <span class="ad-tag">Ad Slot 2</span>
+            <div class="ad-title">Image Compressor HQ</div>
+        </div>
+    </div>
+
+    <div class="workspace">
+        <input type="text" id="userInput" class="input-box" placeholder="Type your text here..." oninput="generateAll()">
+        
+        <div id="results">
+            </div>
+    </div>
+
+    <div class="ad-box" style="text-align:center; width: 100%; box-sizing: border-box;" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
+        <span class="ad-tag">Ad Slot 3</span>
+        <div class="ad-title">Explore 46+ All-in-One Professional Tools for Free!</div>
+    </div>
+
+    <footer>
+        © 2026 EasyUseHub - Advanced Web Utility Tool
+    </footer>
+</div>
+
+<script>
+    const alphabetMaps = [
+        {a: "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃", A: "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩", n: "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"},
+        {a: "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳", A: "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐉", n: "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"},
+        {a: "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫", A: "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ", n: "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"},
+        {a: "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣", A: "𝙰𝙱𝙲𝙳𝙴label{F}𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾label{P}𝚀𝚁𝚂𝚃𝚄double{V}𝚆double{X}𝚈𝚉", n: "𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿"},
+        {a: "αвс∂єƒgнιјκℓмиорգяѕτυνωхуz", A: "αвс∂єƒgнιјκℓмиорգяѕτυνωхуz", n: "0123456789"},
+        {a: "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ", A: "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ", n: "⓪①②③④⑤⑥⑦⑧⑨"},
+        {a: "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ", A: "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ", n: "0123456789"},
+        {a: "ɐqɔpǝɟƃɥıɾʞlɯuodbɹsʇnʌʍxʎz", A: "∀ᗺƆᗡƎℲ⅁HIᒋKꞀWNOԀΌᴚS⊥∩ΛMX⅄Z", n: "0123456789"},
+        {a: "äḅċďệfġḧïjḳḷṃńöṗqṛṩẗüṿẅẍÿż", A: "ÄḄĊĎỆḞĠḦÏJḲḶṂŃÖṖQṚṨṮÜṼẄẌŸŻ", n: "0123456789"}
+    ];
+
+    const decoList = [
+        ["꧂", "꧁"], ["✨", "✨"], ["♛", "♛"], ["🔥", "🔥"], ["❤", "❤"], ["⚡", "⚡"], ["⚔", "⚔"], ["💎", "💎"], ["💀", "💀"], ["❄", "❄"], ["🌟", "🌟"], ["🧸", "🧸"], ["🌊", "🌊"], ["🌙", "🌙"], ["🌈", "🌈"], ["🥀", "🥀"], ["🌸", "🌸"], ["🍀", "🍀"], ["🧿", "🧿"], ["🎵", "🎵"], ["🎮", "🎮"], ["🚀", "🚀"], ["🛸", "🛸"], ["👑", "👑"], ["🐾", "🐾"], ["🦄", "🦄"], ["🦁", "🦁"], ["🦊", "🦊"], ["🐼", "🐼"], ["🐧", "🐧"], ["🦉", "🦉"], ["🦋", "🦋"], ["🐢", "🐢"], ["🐙", "🐙"], ["🐬", "🐬"], ["🦈", "🦈"], ["🐉", "🐉"], ["🐲", "🐲"], ["🌵", "🌵"], ["🌲", "🌲"], ["🌴", "🌴"], ["🌱", "🌱"], ["🌿", "🌿"], ["☘", "☘"], ["🍀", "🍀"], ["☀", "☀"], ["🌈", "🌈"], ["☁", "☁"], ["⛈", "⛈"], ["❄", "❄"], ["🌪", "🌪"], ["🌫", "🌫"], ["🌬", "🌬"], ["💨", "💨"], ["🌂", "🌂"], ["☂", "☂"], ["☔", "☔"], ["⛱", "⛱"], ["⚡", "⚡"], ["☄", "☄"], ["🌠", "🌠"], ["🌌", "🌌"], ["🌙", "🌙"], ["🌛", "🌛"], ["🌜", "🌜"], ["🌝", "🌝"], ["🌞", "🌞"], ["🌅", "🌅"], ["🌇", "🌇"], ["🌆", "🌆"], ["🌃", "🌃"], ["🌉", "🌉"], ["🌌", "🌌"], ["🏰", "🏰"], ["🏯", "🏯"], ["🏟", "🏟"], ["🎡", "🎡"], ["🎢", "🎢"], ["🎠", "🎠"], ["⛲", "⛲"], ["🎨", "🎨"], ["🎬", "🎬"], ["🎤", "🎤"], ["🎧", "🎧"], ["🎼", "🎼"], ["🎹", "🎹"], ["🥁", "🥁"], ["🎷", "🎷"], ["🎺", "🎺"], ["🎸", "🎸"], ["🎻", "🎻"], ["🎬", "🎬"], ["🎮", "🎮"], ["👾", "👾"], ["🎯", "🎯"], ["🎳", "🎳"]
+    ];
+
+    window.onload = () => setTimeout(() => document.getElementById('push-ad').classList.add('active'), 5000);
+
+    function generateAll() {
+        const val = document.getElementById('userInput').value;
+        const res = document.getElementById('results');
+        if(!val) { res.innerHTML = ""; return; }
+
+        let html = "";
+        const normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+        // 1. Alphabet Variations (English Only)
+        if(/[a-zA-Z]/.test(val)) {
+            alphabetMaps.forEach(m => {
+                let converted = "";
+                let fullMap = m.a + m.A + m.n;
+                for(let char of val) {
+                    let idx = normal.indexOf(char);
+                    converted += idx > -1 ? fullMap[idx] : char;
+                }
+                html += createItem(converted);
+            });
+        }
+
+        // 2. Universal Decorator Variations (Works for All Languages)
+        decoList.forEach(d => {
+            let text = d[1] + " " + val + " " + d[0];
+            html += createItem(text);
+        });
+
+        res.innerHTML = html;
+    }
+
+    function createItem(text) {
+        return `
+            <div class="style-card">
+                <div class="style-text">${text}</div>
+                <button class="copy-btn" onclick="cp('${text}', this)">Copy</button>
+            </div>
+        `;
+    }
+
+    function cp(t, b) {
+        navigator.clipboard.writeText(t);
+        const oldText = b.innerText;
+        b.innerText = "Copied!";
+        b.style.background = "#7c3aed";
+        b.style.color = "white";
+        setTimeout(() => {
+            b.innerText = oldText;
+            b.style.background = "#f1f5f9";
+            b.style.color = "#475569";
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>
