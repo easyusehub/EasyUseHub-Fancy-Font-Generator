@@ -3,153 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>150+ Font Style Generator | EasyUseHub Elite</title>
+    <title>Font Style Generator | EasyUseHub Elite</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #3b82f6; --accent: #22d3ee; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
-        * { box-sizing: border-box; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+        * { box-sizing: border-box; transition: 0.3s ease; }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); }
         
-        /* Premium Navigation */
-        .nav-bar { 
-            background: rgba(30, 41, 59, 0.85); backdrop-filter: blur(15px); 
-            padding: 15px 25px; display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 1000; 
-        }
-        .nav-logo { font-weight: 800; color: var(--accent); letter-spacing: 2px; text-decoration: none; font-size: 20px; }
-        .home-btn { background: var(--primary); color: white; padding: 10px 20px; border-radius: 12px; text-decoration: none; font-size: 14px; font-weight: 700; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
+        .nav-bar { background: rgba(30, 41, 59, 0.9); backdrop-filter: blur(10px); padding: 18px; text-align: center; border-bottom: 2px solid var(--primary); font-weight: 800; color: var(--accent); letter-spacing: 2px; position: sticky; top: 0; z-index: 1000; }
 
-        .container { width: 92%; max-width: 850px; margin: 30px auto; padding-bottom: 100px; }
+        .container { width: 92%; max-width: 800px; margin: 20px auto; padding-bottom: 120px; }
 
-        /* Modern Ad Cards */
-        .ad-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 35px; }
+        /* 3 Ad Cards Grid - Desktop 3, Mobile 1 or 2 */
+        .ad-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 25px; }
         .ad-card { 
-            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-            backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; 
-            padding: 22px; cursor: pointer; position: relative; transition: 0.4s;
+            background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; 
+            padding: 15px; cursor: pointer; text-align: center; position: relative;
         }
-        .ad-card:hover { border-color: var(--accent); transform: translateY(-5px); background: rgba(255,255,255,0.08); }
-        .ad-badge { position: absolute; top: 12px; right: 12px; background: var(--accent); color: #000; font-size: 10px; padding: 3px 10px; border-radius: 20px; font-weight: 800; }
-        .ad-card b { color: var(--accent); font-size: 17px; display: block; margin-bottom: 5px; }
-        .ad-card p { font-size: 13px; color: #94a3b8; margin: 0; }
+        .ad-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .ad-card b { color: var(--accent); font-size: 13px; display: block; margin-bottom: 4px; }
+        .ad-card p { font-size: 11px; margin: 0; color: #94a3b8; }
 
         /* Workspace */
-        .main-card { background: var(--card); border-radius: 35px; padding: 40px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.6); }
-        h1 { font-size: 32px; text-align: center; margin-top: 0; margin-bottom: 30px; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        #userInput { 
-            width: 100%; border: 2px solid rgba(255,255,255,0.1); border-radius: 22px; padding: 25px; 
-            font-size: 22px; outline: none; resize: none; text-align: center; background: rgba(0,0,0,0.3); color: #fff;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+        .main-card { background: var(--card); border-radius: 25px; padding: 25px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        textarea { 
+            width: 100%; border: 2px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 22px; 
+            font-size: 20px; outline: none; background: rgba(0,0,0,0.3); color: #fff; text-align: center;
         }
-        #userInput:focus { border-color: var(--accent); box-shadow: 0 0 25px rgba(34, 211, 238, 0.15); }
+        textarea:focus { border-color: var(--accent); }
 
-        /* Results Display */
-        #results { display: grid; gap: 15px; margin-top: 40px; }
+        #results { margin-top: 25px; display: grid; gap: 10px; }
         .style-item { 
-            background: rgba(255,255,255,0.02); padding: 20px 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
-            display: flex; justify-content: space-between; align-items: center; animation: fadeIn 0.5s ease forwards;
+            background: rgba(255,255,255,0.03); padding: 16px 20px; border-radius: 16px;
+            display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.05);
         }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .style-val { font-size: 26px; color: #fff; overflow-wrap: anywhere; flex-grow: 1; padding-right: 25px; font-weight: 500; }
-        .btn-copy { 
-            background: var(--primary); color: white; border: none; padding: 14px 28px; 
-            border-radius: 15px; cursor: pointer; font-weight: 800; font-size: 13px; flex-shrink: 0;
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
-        }
-        .btn-copy:active { transform: scale(0.95); }
+        .style-val { font-size: 24px; color: #fff; word-break: break-all; padding-right: 15px; }
+        .btn-copy { background: var(--primary); color: white; border: none; padding: 12px 22px; border-radius: 12px; cursor: pointer; font-size: 12px; font-weight: 800; flex-shrink: 0; }
 
-        /* Footer Button */
-        .all-tools-btn {
-            display: block; width: 100%; background: linear-gradient(135deg, #3b82f6, #06b6d4);
-            color: white; text-align: center; padding: 22px; border-radius: 22px; 
-            text-decoration: none; font-weight: 800; margin-top: 40px; font-size: 18px;
-            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+        /* Push Notification Ad */
+        #push-ad {
+            position: fixed; bottom: -120px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; 
+            background: #1e293b; border-radius: 18px; padding: 15px; z-index: 1100; border: 1px solid var(--accent);
+            display: flex; align-items: center; box-shadow: 0 15px 40px rgba(0,0,0,0.6); transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        #push-ad.show { bottom: 90px; }
+
+        /* Fixed Bottom Home Nav */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #0f172a; padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; z-index: 1001; }
+        .home-btn-fixed { background: linear-gradient(135deg, #3b82f6, #06b6d4); color: white; text-decoration: none; padding: 14px 50px; border-radius: 35px; font-weight: 800; font-size: 16px; display: inline-block; box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4); }
     </style>
 </head>
 <body>
 
-<div class="nav-bar">
-    <a href="https://easyusehub.blogspot.com" class="nav-logo">EASYUSEHUB</a>
-    <a href="https://easyusehub.blogspot.com" class="home-btn">🏠 Home</a>
-</div>
+<div class="nav-bar">EASYUSEHUB</div>
 
 <div class="container">
     <div class="ad-grid">
-        <div class="ad-card" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
-            <span class="ad-badge">PREMIUM</span>
+        <div class="ad-card" onclick="location.href='https://easyusehub.blogspot.com'">
             <b>Free PDF Tool</b>
-            <p>The All-in-One Online Workspace.</p>
+            <p>All-in-One Workspace</p>
         </div>
-        <div class="ad-card" onclick="window.open('https://easyusehub.blogspot.com/p/image-compressor.html','_blank')">
-            <span class="ad-badge">ULTRA</span>
+        <div class="ad-card" onclick="location.href='https://easyusehub.blogspot.com/p/image-compressor.html'">
             <b>Image Compressor</b>
-            <p>High quality optimization for free.</p>
+            <p>High Quality Resize</p>
+        </div>
+        <div class="ad-card" onclick="location.href='https://easyusehub.blogspot.com/p/ultimate-calculators-hub.html'">
+            <b>100+ Calculators</b>
+            <p>Pro Math & Health</p>
         </div>
     </div>
 
     <main class="main-card">
-        <h1>Premium Font Generator</h1>
-        <textarea id="userInput" rows="2" placeholder="Enter text to see magic..." oninput="gen()"></textarea>
+        <h2 style="text-align:center; margin-top:0; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Premium Font Generator</h2>
+        <textarea id="userInput" rows="2" placeholder="Type your text here..." oninput="gen()"></textarea>
         <div id="results"></div>
     </main>
+</div>
 
-    <a href="https://easyusehub.blogspot.com" class="all-tools-btn">Explore All 46+ Pro Tools</a>
+<div id="push-ad">
+    <div style="flex-grow:1; cursor:pointer" onclick="location.href='https://easyusehub.blogspot.com'">
+        <b style="color:var(--accent); font-size:15px;">🚀 Boost Your SEO</b>
+        <p style="margin:4px 0 0 0; font-size:12px; color:#cbd5e1;">Access 46+ Professional Web Tools for FREE.</p>
+    </div>
+    <span style="cursor:pointer; padding:5px 12px; font-weight:bold; color: #94a3b8" onclick="this.parentElement.classList.remove('show')">✕</span>
+</div>
+
+<div class="bottom-nav">
+    <a href="https://easyusehub.blogspot.com" class="home-btn-fixed">🏠 Back to Home</a>
 </div>
 
 <script>
-    // Pure Map Data - No "label{P}" errors anymore.
-    const alphaMaps = [
-        {a: "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃", A: "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩", n: "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"},
-        {a: "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳", A: "𝐀𝐁𝐂𝐃𝐄𝐅𝐆ＨＩＪ𝐊𝐋ＭＮＯ𝐏ＱＲＳＴＵＶＷＸＹＺ", n: "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"},
-        {a: "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝐩𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫", A: "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ", n: "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"},
-        {a: "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣", A: "𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉", n: "𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿"},
-        {a: "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟", A: "𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅", n: "0123456789"},
-        {a: "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ", A: "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ", n: "⓪①②③④⑤⑥⑦⑧⑨"},
-        {a: "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩", A: "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩", n: "0123456789"},
-        {a: "αвс∂єƒgнιјκℓмиорգяѕτυνωхуz", A: "αвс∂єƒgнιјκℓмиорգяѕτυνωхуz", n: "0123456789"},
-        {a: "ﾑ乃ᄃり乇ｷムんﾉﾌズﾚﾼ刀のｱゐ尺丂ｲひ√Wﾒﾘ乙", A: "ﾑ乃ᄃり乇ｷムんﾉﾌズﾚﾼ刀のｱゐ尺丂ｲひ√Wﾒﾘ乙", n: "0123456789"},
-        {a: "ค๒ς๔єŦﻮђเןкɭ๓ภ๏קợгรՇยงฬאץչ", A: "ค๒ς๔єŦﻮђเןкɭ๓ภ๏קợгรՇยงฬאץչ", n: "0123456789"},
-        {a: "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ", A: "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ", n: "0123456789"},
-        {a: "a̲b̲c̲d̲e̲f̲g̲h̲i̲j̲k̲l̲m̲n̲o̲p̲q̲r̲s̲t̲u̲v̲w̲x̲y̲z̲", A: "A̲B̲C̲D̲E̲F̲G̲H̲I̲J̲K̲L̲M̲N̲O̲P̲Q̲R̲S̲T̲U̲V̲W̲X̲Y̲Z̲", n: "0̲1̲2̲3̲4̲5̲6̲7̲8̲9̲"}
+    // These maps use characters that have near 100% mobile support
+    const safeMaps = [
+        {a: "αвс∂єƒgнιјκℓмиорգяѕτυνωхуz", A: "αвс∂єƒgнιјκℓмиорգяѕτυνωхуz"},
+        {a: "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ", A: "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ"},
+        {a: "ﾑ乃ᄃり乇ｷムんﾉﾌズﾚﾼ刀のｱゐ尺丂ｲひ√Wﾒﾘ乙", A: "ﾑ乃ᄃり乇ｷムんﾉﾌズﾚﾼ刀のｱゐ尺丂ｲひ√Wﾒﾘ乙"},
+        {a: "ค๒ς๔єŦﻮђเןкɭ๓ภ๏קợгรՇยงฬאץչ", A: "ค๒ς๔єŦﻮђเןкɭ๓ภ๏קợгรՇยงฬאץչ"},
+        {a: "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ", A: "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ"},
+        {a: "a̲b̲c̲d̲e̲f̲g̲h̲i̲j̲k̲l̲m̲n̲o̲p̲q̲r̲s̲t̲u̲v̲w̲x̲y̲z̲", A: "A̲B̲C̲D̲E̲F̲G̲H̲I̲J̲K̲L̲M̲N̲O̲P̲Q̲R̲S̲T̲U̲V̲W̲X̲Y̲Z̲"},
+        {a: "a̸b̸c̸d̸e̸f̸g̸h̸i̸j̸k̸l̸m̸n̸o̸p̸q̸r̸s̸t̸u̸v̸w̸x̸y̸z̸", A: "A̸B̸C̸D̸E̸F̸G̸H̸I̸J̸K̸L̸M̸N̸O̸P̸Q̸R̸S̸T̸U̸V̸W̸X̸Y̸Z̸"},
+        {a: "a̾b̾c̾d̾e̾f̾g̾h̾i̾j̾k̾l̾m̾n̾o̾p̾q̾r̾s̾t̾u̾v̾w̾x̾y̾z̾", A: "A̾B̾C̾D̾E̾F̾G̾H̾I̾J̾K̾L̾M̾N̾O̾P̾Q̾R̾S̾T̾U̾V̾W̾X̾Y̾Z̾"},
+        {a: "a͓̽b͓̽c͓̽d͓̽e͓̽f͓̽g͓̽h͓̽i͓̽j͓̽k͓̽l͓̽m͓̽n͓̽o͓̽p͓̽q͓̽r͓̽s͓̽t͓̽u͓̽v͓̽w͓̽x͓̽y͓̽z͓̽", A: "A͓̽B͓̽C͓̽D͓̽E͓̽F͓̽G͓̽H͓̽I͓̽J͓̽K͓̽L͓̽M͓̽N͓̽O͓̽P͓̽Q͓̽R͓̽S͓̽T͓̽U͓̽V͓̽W͓̽X͓̽Y͓̽Z͓̽"},
+        {a: "ค๒ς๔єŦﻮђเјкℓмภσρգяѕтυνωאуչ", A: "ค๒ς๔єŦﻮђเјкℓмภσρգяѕтυνωאуչ"}
     ];
 
-    const symbols = ["★", "☆", "✦", "✧", "💠", "🛡", "⚔", "🔱", "⚜", "⚓", "⛩", "⚖", "💎", "🧿", "░", "彡", "╰☆╮", "꧁", "꧂", "『", "』", "【", "】", "◈", "◆", "卍", "❦", "❂"];
+    const decors = ["★", "☆", "✦", "✧", "💠", "⚔", "🔱", "⚓", "💎", "░", "彡", "꧁", "꧂", "◈", "◆", "❂", "✿", "❤", "⚡", "🔥"];
+
+    window.onload = () => setTimeout(() => document.getElementById('push-ad').classList.add('show'), 3000);
 
     function gen() {
         const v = document.getElementById('userInput').value;
         const res = document.getElementById('results');
         if(!v) { res.innerHTML = ""; return; }
         let h = "";
-        const norm = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        const norm = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        // 1. Core Styles (12)
-        alphaMaps.forEach(m => {
-            let s = ""; for(let c of v) { let i = norm.indexOf(c); s += i > -1 ? (m.a+m.A+m.n)[i] : c; }
+        // 1. Core Safe Styles
+        safeMaps.forEach(m => {
+            let s = ""; for(let c of v) { let i = norm.indexOf(c); s += i > -1 ? (m.a+m.A)[i] : c; }
             h += item(s);
         });
 
-        // 2. Combination Styles (Symbol + Map) -> This creates 100+ variations
-        let count = 0;
-        symbols.forEach(sym => {
-            alphaMaps.slice(0, 4).forEach(m => {
-                if(count > 140) return;
-                let s = ""; for(let c of v) { let i = norm.indexOf(c); s += i > -1 ? (m.a+m.A+m.n)[i] : c; }
-                h += item(sym + " " + s + " " + sym);
-                count++;
+        // 2. Combination Styles (Symbol + Safe Font) -> 100+ variations
+        decors.forEach(d => {
+            // With Normal Font
+            h += item(d + " " + v + " " + d);
+            
+            // With Top 2 Safe Fonts
+            [0, 1].forEach(idx => {
+                let m = safeMaps[idx];
+                let s = ""; for(let c of v) { let i = norm.indexOf(c); s += i > -1 ? (m.a+m.A)[i] : c; }
+                h += item(d + " " + s + " " + d);
             });
-            // Symbol with Normal Text
-            h += item(sym + " " + v + " " + sym);
-            count++;
         });
 
         res.innerHTML = h;
     }
 
     function item(t) { return `<div class="style-item"><div class="style-val">${t}</div><button class="btn-copy" onclick="cp(this, '${t}')">COPY</button></div>`; }
-    function cp(b, t) { navigator.clipboard.writeText(t); b.innerText = "COPIED"; b.style.background = "#10b981"; setTimeout(() => { b.innerText = "COPY"; b.style.background = "#3b82f6"; }, 1000); }
+    function cp(b, t) { navigator.clipboard.writeText(t); b.innerText = "DONE"; b.style.background = "#10b981"; setTimeout(() => { b.innerText = "COPY"; b.style.background = "#3b82f6"; }, 1000); }
 </script>
 </body>
 </html>
