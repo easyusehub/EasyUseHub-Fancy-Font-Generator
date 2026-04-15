@@ -3,114 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fancy Font Generator | 100+ Stylish Fonts - EasyUseHub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Elite Font Generator | 100+ Pro Styles | EasyUseHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #7c3aed; --accent: #00e5ff; --bg: #ffffff; --dark-bg: #f8fafc; --text: #0f172a; --card: #ffffff; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--dark-bg); color: var(--text); }
-        .container { width: 92%; max-width: 800px; margin: 0 auto; padding: 40px 0; }
+        :root { --primary: #2563eb; --accent: #06b6d4; --bg: #f8fafc; --card: #ffffff; --text: #0f172a; }
+        * { box-sizing: border-box; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         
-        /* Push Ad Picsart Style */
+        /* Premium Navigation */
+        .nav-bar { background: #fff; padding: 18px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; color: var(--primary); letter-spacing: 1.5px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        
+        .container { width: 92%; max-width: 800px; margin: 25px auto; padding-bottom: 100px; }
+
+        /* Professional Push Ad */
         #push-ad {
-            position: fixed; bottom: -200px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; 
-            background: #1e293b; color: white; border-radius: 16px; padding: 15px; z-index: 10000; 
-            transition: 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); display: flex; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: fixed; bottom: -150px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 420px; 
+            background: #1e293b; color: white; border-radius: 20px; padding: 16px; z-index: 9999; 
+            display: flex; align-items: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
         }
-        #push-ad.active { bottom: 20px; }
-        .close-ad { position: absolute; top: 10px; right: 10px; cursor: pointer; color: #94a3b8; }
+        #push-ad.active { bottom: 25px; }
+        .close-ad { position: absolute; top: 10px; right: 15px; cursor: pointer; color: #94a3b8; font-size: 18px; }
 
-        header { text-align: center; margin-bottom: 40px; }
-        header h1 { font-size: 40px; font-weight: 800; color: #1e293b; margin-bottom: 10px; letter-spacing: -1px; }
-        header p { color: #64748b; font-size: 16px; }
+        /* Clean Ad Layout */
+        .ad-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .ad-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; cursor: pointer; position: relative; overflow: hidden; }
+        .ad-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .ad-card::before { content: "AD"; position: absolute; top: 0; left: 0; background: #f1f5f9; font-size: 9px; padding: 2px 6px; font-weight: 800; border-bottom-right-radius: 8px; color: #64748b; }
+        .ad-card b { display: block; margin-top: 5px; color: var(--primary); font-size: 15px; }
 
-        /* Ads Layout */
-        .ad-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
-        .ad-box { background: white; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 15px; text-align: left; cursor: pointer; transition: 0.3s; }
-        .ad-box:hover { border-color: var(--primary); background: #f5f3ff; }
-        .ad-tag { font-size: 10px; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 5px; display: block; }
-        .ad-title { font-weight: 700; font-size: 14px; color: #1e293b; }
-
-        /* Main Generator Tool */
-        .workspace { background: var(--card); border-radius: 24px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); margin-bottom: 30px; }
-        .input-box { width: 100%; border: 2px solid #e2e8f0; border-radius: 16px; padding: 20px; font-size: 22px; color: #1e293b; outline: none; transition: 0.3s; box-sizing: border-box; text-align: center; }
-        .input-box:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1); }
-
-        /* Style Grid */
-        #results { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; }
-        .style-card { 
-            background: white; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;
-            display: flex; justify-content: space-between; align-items: center; transition: 0.2s;
+        /* Workspace */
+        .main-card { background: var(--card); border-radius: 28px; padding: 35px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; margin-bottom: 30px; }
+        .main-card h1 { margin: 0 0 20px 0; font-size: clamp(22px, 5vw, 30px); text-align: center; font-weight: 800; color: #1e293b; }
+        
+        #userInput { 
+            width: 100%; border: 2px solid #e2e8f0; border-radius: 20px; padding: 22px; 
+            font-size: 20px; outline: none; resize: none; text-align: center; background: #f8fafc; color: #0f172a;
         }
-        .style-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .style-text { font-size: 22px; color: #1e293b; overflow-wrap: anywhere; }
-        .copy-btn { 
-            background: #f1f5f9; color: #475569; border: none; padding: 10px 20px; 
-            border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 13px; transition: 0.3s;
-        }
-        .copy-btn:hover { background: var(--primary); color: white; }
+        #userInput:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.08); }
 
-        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 13px; }
+        /* Results List */
+        #results { display: grid; gap: 12px; margin-top: 25px; }
+        .style-item { 
+            background: #fff; padding: 20px; border-radius: 18px; border: 1px solid #f1f5f9;
+            display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+        }
+        .style-item:hover { border-color: var(--primary); box-shadow: 0 12px 20px -10px rgba(0,0,0,0.08); }
+        .style-val { font-size: 22px; color: #1e293b; overflow-wrap: anywhere; flex-grow: 1; padding-right: 20px; }
+        .btn-copy { 
+            background: #f1f5f9; color: #475569; border: none; padding: 12px 22px; 
+            border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 13px; flex-shrink: 0;
+        }
+        .btn-copy:hover { background: var(--primary); color: #fff; }
+        .btn-copy.success { background: #10b981 !important; color: white; }
+
+        .footer { text-align: center; padding: 40px 0; color: #94a3b8; font-size: 13px; font-weight: 600; }
     </style>
 </head>
 <body>
 
+<div class="nav-bar">EASYUSEHUB ELITE</div>
+
 <div id="push-ad">
     <span class="close-ad" onclick="this.parentElement.classList.remove('active')">✕</span>
-    <div style="cursor:pointer" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
-        <span style="color:var(--accent); font-weight:800; font-size:12px;">PRO TOOL</span>
-        <p style="margin:5px 0 0 0; font-size:14px;">Try EasyUseHub's 46+ Professional Utilities!</p>
+    <div style="cursor:pointer; width: 100%;" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
+        <b style="color:var(--accent); font-size:12px; text-transform:uppercase;">Premium Suggestion</b>
+        <p style="margin:5px 0 0 0; font-size:14px; color:#e2e8f0;">Master your workflow with 46+ Professional Tools!</p>
     </div>
 </div>
 
 <div class="container">
-    <header>
+    <div class="ad-grid">
+        <div class="ad-card" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
+            <b>PDF Workspace Pro</b>
+            <p style="font-size:12px; color:#64748b; margin:5px 0;">Merge, Edit & Convert PDF easily.</p>
+        </div>
+        <div class="ad-card" onclick="window.open('https://easyusehub.blogspot.com/p/image-compressor.html','_blank')">
+            <b>Ultra Image Mini</b>
+            <p style="font-size:12px; color:#64748b; margin:5px 0;">Compress images without losing quality.</p>
+        </div>
+    </div>
+
+    <main class="main-card">
         <h1>Font Generator</h1>
-        <p>Type your text and choose from 100+ professional styles</p>
-    </header>
+        <textarea id="userInput" rows="2" placeholder="Write anything (English, বাংলা, Hindi, etc.)..." oninput="generateAll()"></textarea>
+    </main>
 
-    <div class="ad-container">
-        <div class="ad-box" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
-            <span class="ad-tag">Ad Slot 1</span>
-            <div class="ad-title">Free PDF Editor Pro</div>
+    <div id="results">
         </div>
-        <div class="ad-box" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
-            <span class="ad-tag">Ad Slot 2</span>
-            <div class="ad-title">Image Compressor HQ</div>
-        </div>
+
+    <div class="ad-card" style="width:100%; margin-top:20px; text-align:center;" onclick="window.open('https://easyusehub.blogspot.com/p/ultimate-calculators-hub.html','_blank')">
+        <b>Unlock All Premium Calculators</b>
+        <p style="font-size:13px; color:#64748b;">Financial, Health, and Math tools at your fingertips.</p>
     </div>
 
-    <div class="workspace">
-        <input type="text" id="userInput" class="input-box" placeholder="Type your text here..." oninput="generateAll()">
-        
-        <div id="results">
-            </div>
-    </div>
-
-    <div class="ad-box" style="text-align:center; width: 100%; box-sizing: border-box;" onclick="window.open('https://easyusehub.blogspot.com','_blank')">
-        <span class="ad-tag">Ad Slot 3</span>
-        <div class="ad-title">Explore 46+ All-in-One Professional Tools for Free!</div>
-    </div>
-
-    <footer>
-        © 2026 EasyUseHub - Advanced Web Utility Tool
+    <footer class="footer">
+        © 2026 EasyUseHub - Global Multi-Language Text Stylist
     </footer>
 </div>
 
 <script>
-    const alphabetMaps = [
-        {a: "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃", A: "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩", n: "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"},
-        {a: "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳", A: "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐉", n: "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"},
-        {a: "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫", A: "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ", n: "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"},
-        {a: "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣", A: "𝙰𝙱𝙲𝙳𝙴label{F}𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾label{P}𝚀𝚁𝚂𝚃𝚄double{V}𝚆double{X}𝚈𝚉", n: "𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿"},
-        {a: "αвс∂єƒgнιјκℓмиорգяѕτυνωхуz", A: "αвс∂єƒgнιјκℓмиорգяѕτυνωхуz", n: "0123456789"},
-        {a: "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ", A: "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ", n: "⓪①②③④⑤⑥⑦⑧⑨"},
-        {a: "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ", A: "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ", n: "0123456789"},
-        {a: "ɐqɔpǝɟƃɥıɾʞlɯuodbɹsʇnʌʍxʎz", A: "∀ᗺƆᗡƎℲ⅁HIᒋKꞀWNOԀΌᴚS⊥∩ΛMX⅄Z", n: "0123456789"},
-        {a: "äḅċďệfġḧïjḳḷṃńöṗqṛṩẗüṿẅẍÿż", A: "ÄḄĊĎỆḞĠḦÏJḲḶṂŃÖṖQṚṨṮÜṼẄẌŸŻ", n: "0123456789"}
+    // Massive Font Library (Unicode Alphanumeric)
+    const fontLibrary = [
+        {a: "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃", A: "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩", n: "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"}, // Cursive Bold
+        {a: "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳", A: "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐉", n: "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"}, // Serif Bold
+        {a: "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫", A: "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ", n: "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"}, // Double Struck
+        {a: "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣", A: "𝙰𝙱𝙲𝙳𝙴label{F}𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾label{P}𝚀𝚁𝚂𝚃𝚄double{V}𝚆double{X}𝚈𝚉", n: "𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿"}, // Monospace
+        {a: "𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓", A: "𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹", n: "0123456789"}, // Sans
+        {a: "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝗑𝘆𝘇", A: "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭", n: "𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵"}, // Sans Bold
+        {a: "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻", A: "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡", n: "0123456789"}, // Sans Italic
+        {a: "𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙫𝙬𝙭𝙮𝙯", A: "𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕", n: "0123456789"}, // Bold Italic
+        {a: "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟", A: "𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅", n: "0123456789"}, // Fraktur/Gothic
+        {a: "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ", A: "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ", n: "0123456789"}, // Light Fraktur
+        {a: "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ", A: "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ", n: "⓪①②③④⑤⑥⑦⑧⑨"}, // Circled
+        {a: "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩", A: "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩", n: "0123456789"}, // Dark Circle
+        {a: "🄰🄱🄲🄳🄴🄵🄶🄗🄸🄹🄺🄻🄼🄽🄾🄿🄝🄡🄢🄣🄤🄥🄦🄧🄨🄩", A: "🄰🄱🄲🄳🄴🄵🄶🄗🄸🄹🄺🄻🄼🄽🄾🄿🄝🄡🄢🄣🄤🄥🄦🄧🄨🄩", n: "0123456789"}, // Squared
+        {a: "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉", A: "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉", n: "0123456789"} // Dark Square
     ];
 
-    const decoList = [
-        ["꧂", "꧁"], ["✨", "✨"], ["♛", "♛"], ["🔥", "🔥"], ["❤", "❤"], ["⚡", "⚡"], ["⚔", "⚔"], ["💎", "💎"], ["💀", "💀"], ["❄", "❄"], ["🌟", "🌟"], ["🧸", "🧸"], ["🌊", "🌊"], ["🌙", "🌙"], ["🌈", "🌈"], ["🥀", "🥀"], ["🌸", "🌸"], ["🍀", "🍀"], ["🧿", "🧿"], ["🎵", "🎵"], ["🎮", "🎮"], ["🚀", "🚀"], ["🛸", "🛸"], ["👑", "👑"], ["🐾", "🐾"], ["🦄", "🦄"], ["🦁", "🦁"], ["🦊", "🦊"], ["🐼", "🐼"], ["🐧", "🐧"], ["🦉", "🦉"], ["🦋", "🦋"], ["🐢", "🐢"], ["🐙", "🐙"], ["🐬", "🐬"], ["🦈", "🦈"], ["🐉", "🐉"], ["🐲", "🐲"], ["🌵", "🌵"], ["🌲", "🌲"], ["🌴", "🌴"], ["🌱", "🌱"], ["🌿", "🌿"], ["☘", "☘"], ["🍀", "🍀"], ["☀", "☀"], ["🌈", "🌈"], ["☁", "☁"], ["⛈", "⛈"], ["❄", "❄"], ["🌪", "🌪"], ["🌫", "🌫"], ["🌬", "🌬"], ["💨", "💨"], ["🌂", "🌂"], ["☂", "☂"], ["☔", "☔"], ["⛱", "⛱"], ["⚡", "⚡"], ["☄", "☄"], ["🌠", "🌠"], ["🌌", "🌌"], ["🌙", "🌙"], ["🌛", "🌛"], ["🌜", "🌜"], ["🌝", "🌝"], ["🌞", "🌞"], ["🌅", "🌅"], ["🌇", "🌇"], ["🌆", "🌆"], ["🌃", "🌃"], ["🌉", "🌉"], ["🌌", "🌌"], ["🏰", "🏰"], ["🏯", "🏯"], ["🏟", "🏟"], ["🎡", "🎡"], ["🎢", "🎢"], ["🎠", "🎠"], ["⛲", "⛲"], ["🎨", "🎨"], ["🎬", "🎬"], ["🎤", "🎤"], ["🎧", "🎧"], ["🎼", "🎼"], ["🎹", "🎹"], ["🥁", "🥁"], ["🎷", "🎷"], ["🎺", "🎺"], ["🎸", "🎸"], ["🎻", "🎻"], ["🎬", "🎬"], ["🎮", "🎮"], ["👾", "👾"], ["🎯", "🎯"], ["🎳", "🎳"]
+    // Minimalist Global Decorators
+    const globalDecors = [
+        ["「", "」"], ["『", "』"], ["【", "】"], ["《", "》"], ["〔", "〕"], ["( ", " )"], ["| ", " |"], [" • ", " • "], [" ✩ ", " ✩ "], [" ✦ ", " ✦ "], [" ✧ ", " ✧ "], [" 💠 ", " 💠 "], [" ⚓ ", " ⚓ "], [" ⛩ ", " ⛩ "], [" ⚔ ", " ⚔ "], [" ⚖ ", " ⚖ "], [" ⚜ ", " ⚜ "], [" 🔱 ", " 🔱 "], [" 💎 ", " 💎 "], [" 🧿 ", " 🧿 "]
     ];
 
     window.onload = () => setTimeout(() => document.getElementById('push-ad').classList.add('active'), 5000);
@@ -123,48 +135,57 @@
         let html = "";
         const normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-        // 1. Alphabet Variations (English Only)
-        if(/[a-zA-Z]/.test(val)) {
-            alphabetMaps.forEach(m => {
+        // 1. Core Language Agnostic Font Styles (English Mapping)
+        if(/[a-zA-Z0-9]/.test(val)) {
+            fontLibrary.forEach(m => {
                 let converted = "";
-                let fullMap = m.a + m.A + m.n;
                 for(let char of val) {
                     let idx = normal.indexOf(char);
-                    converted += idx > -1 ? fullMap[idx] : char;
+                    converted += idx > -1 ? (m.a + m.A + m.n)[idx] : char;
                 }
                 html += createItem(converted);
             });
         }
 
-        // 2. Universal Decorator Variations (Works for All Languages)
-        decoList.forEach(d => {
-            let text = d[1] + " " + val + " " + d[0];
-            html += createItem(text);
+        // 2. Universal Global Decorations (Works for 50+ Languages)
+        // This takes the input and wraps it in elegant, clean markers
+        globalDecors.forEach(d => {
+            html += createItem(d[0] + val + d[1]);
         });
+
+        // 3. Multi-Mix Styles (Bold + Decor)
+        if(/[a-zA-Z]/.test(val)) {
+            globalDecors.slice(0, 10).forEach(d => {
+                let boldText = "";
+                for(let char of val) {
+                    let idx = normal.indexOf(char);
+                    boldText += idx > -1 ? fontLibrary[1].a[idx] : char;
+                }
+                html += createItem(d[0] + boldText + d[1]);
+            });
+        }
 
         res.innerHTML = html;
     }
 
     function createItem(text) {
         return `
-            <div class="style-card">
-                <div class="style-text">${text}</div>
-                <button class="copy-btn" onclick="cp('${text}', this)">Copy</button>
+            <div class="style-item">
+                <div class="style-val">${text}</div>
+                <button class="btn-copy" onclick="copyText(this, '${text.replace(/'/g, "\\'")}')">COPY</button>
             </div>
         `;
     }
 
-    function cp(t, b) {
-        navigator.clipboard.writeText(t);
-        const oldText = b.innerText;
-        b.innerText = "Copied!";
-        b.style.background = "#7c3aed";
-        b.style.color = "white";
+    function copyText(btn, text) {
+        navigator.clipboard.writeText(text);
+        const original = btn.innerText;
+        btn.innerText = "DONE";
+        btn.classList.add('success');
         setTimeout(() => {
-            b.innerText = oldText;
-            b.style.background = "#f1f5f9";
-            b.style.color = "#475569";
-        }, 1500);
+            btn.innerText = original;
+            btn.classList.remove('success');
+        }, 1200);
     }
 </script>
 
